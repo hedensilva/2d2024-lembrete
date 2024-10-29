@@ -4,6 +4,7 @@
     conectarDB("localhost","root","","agenda");
 
     $lembretes = consultarSQL("SELECT * FROM lembrete");
+    $lembrete;
 
     if(isset($_POST['salvar'])){
         $lembrete = $_POST['lembrete'];
@@ -11,4 +12,21 @@
         executarSQL($sql);
         header("Location:index.php");
     }
+
+    if(isset($_GET['id'])){
+        global $lembrete;
+        $id = $_GET['id'];
+        $sql = "SELECT * FROM lembrete WHERE id='$id'";
+        $lembrete = consultarSQL($sql);
+    }
+    if(isset($_POST['atualizar'])){
+        $id = $_POST['id'];
+        $lembrete = $_POST['lembrete'];
+        $sql = "UPDATE lembrete 
+                SET lembrete='$lembrete'
+                WHERE id='$id'";
+        executarSQL($sql);
+        header("Location:index.php");        
+    }
+
 ?>

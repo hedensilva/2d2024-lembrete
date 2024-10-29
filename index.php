@@ -16,7 +16,11 @@
         <button name="salvar" type="submit">Salvar</button>
     </form>
     <?php foreach($lembretes as $lembrete) : ?>
-        <p><?=$lembrete[1]?></p>
+        <p>
+            <a href="form-update.php?id=<?=$lembrete[0]?>">
+                <?=$lembrete[1]?>
+            </a>
+        </p>
     <?php endforeach ?>
 </body>
 </html>
