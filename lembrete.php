@@ -28,5 +28,18 @@
         executarSQL($sql);
         header("Location:index.php");        
     }
+    if(isset($_GET['confirmaexcluir'])){
+        $id = $_GET['confirmaexcluir'];
+        $sql = "SELECT * FROM lembrete WHERE id='$id'";
+        $lembrete = consultarSQL($sql);
+        include "confirma-excluir.php";
+    }
+    if(isset($_GET['idexcluir'])){
+        $id = $_GET['idexcluir'];
+        $sql = "DELETE FROM lembrete WHERE id='$id'";
+        executarSQL($sql);
+        header("Location:index.php");
+    }
+
 
 ?>

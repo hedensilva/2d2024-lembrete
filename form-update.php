@@ -30,6 +30,11 @@
         >
             Atualizar
         </button>
+        <a href="lembrete.php?confirmaexcluir=<?=$lembrete[0][0]?>">
+            <button type='button'>
+                Excluir
+            </button>
+        </a>
     </form>
 </body>
 </html>
